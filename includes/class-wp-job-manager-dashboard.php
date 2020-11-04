@@ -41,6 +41,7 @@ final class WP_Job_Manager_Dashboard {
 		// Actions.
 		add_action( 'after_setup_theme', [ $this, 'include_template_functions' ], 11 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
+		add_filter( 'template_include', [ $this, 'dashboard_page_template' ], 99 );
 	}
 
 	/**
@@ -71,6 +72,19 @@ final class WP_Job_Manager_Dashboard {
 			[],
 			$asset_file['version']
 		);
+	}
+
+	/**
+	 * [dashboard_page_template description]
+	 * @param  [type] $template [description]
+	 * @return [type]           [description]
+	 */
+	public function dashboard_page_template( $template ) {
+		if ( is_page( 'dashboard' ) && file_exists( WP_JOB_MANAGER_DASHBOARD_PLUGIN_DIR . '/templates/dashboard.php' ) ) {
+			return WP_JOB_MANAGER_DASHBOARD_PLUGIN_DIR . '/templates/dashboard.php';
+		}
+
+		return $template;
 	}
 
 }
