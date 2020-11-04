@@ -3,6 +3,10 @@
 	"version": "0.1.0",
 	"main": "Gruntfile.js",
 	"author": "YOUR NAME HERE",
+	"scripts": {
+		"start": "wp-scripts start",
+		"build": "wp-scripts build"
+	},
 	"devDependencies": {
 		"@wordpress/scripts": "12.5.0",
 		"grunt": "~0.4.5",
