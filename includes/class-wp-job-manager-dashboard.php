@@ -63,7 +63,8 @@ final class WP_Job_Manager_Dashboard {
 			'wp-job-manager-dashboard',
 			WP_JOB_MANAGER_DASHBOARD_PLUGIN_URL . '/build/index.js',
 			$asset_file['dependencies'],
-			$asset_file['version']
+			$asset_file['version'],
+			true
 		);
 
 		wp_register_style(
@@ -72,6 +73,9 @@ final class WP_Job_Manager_Dashboard {
 			[],
 			$asset_file['version']
 		);
+
+		wp_enqueue_script( 'wp-job-manager-dashboard' );
+		wp_enqueue_style( 'wp-job-manager-dashboard' );
 	}
 
 	/**
