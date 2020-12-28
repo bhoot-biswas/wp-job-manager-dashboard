@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies.
  */
-import { render } from '@wordpress/element';
+import {render} from "@wordpress/element";
 import {registerStore} from "@wordpress/data";
 
 /**
@@ -9,12 +9,22 @@ import {registerStore} from "@wordpress/data";
  */
 import "./scss/index.scss";
 import reducer from "./rootReducer";
+import actions from "./actions";
+import selectors from "./selectors";
+import controls from "./controls";
+import resolvers from "./resolvers";
 import Dashboard from "./dashboard";
 
 /**
  * Register store.
  */
-registerStore("wpjm-dashboard", {reducer});
+registerStore("wpjm-dashboard", {
+	reducer,
+	actions,
+	selectors,
+	controls,
+	resolvers
+});
 
 const appRoot = document.getElementById("wpjm-dashboard");
 if (appRoot) {
