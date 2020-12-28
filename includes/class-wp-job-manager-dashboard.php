@@ -21,17 +21,18 @@ final class WP_Job_Manager_Dashboard {
 	 * The single instance of the class.
 	 * @var [type]
 	 */
-	private static $instance = null;
+	protected static $_instance = null; // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
+
 
 	/**
 	 * Ensures only one instance of WP_Job_Manager_Dashboard is loaded or can be loaded.
 	 * @return [type] [description]
 	 */
 	public static function instance() {
-		if ( is_null( self::$instance ) ) {
-			self::$instance = new self();
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new self();
 		}
-		return self::$instance;
+		return self::$_instance;
 	}
 
 	/**
