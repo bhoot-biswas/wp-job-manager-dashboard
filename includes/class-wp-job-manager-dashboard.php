@@ -105,5 +105,3 @@ final class WP_Job_Manager_Dashboard {
 	}
 
 }
-
-WP_Job_Manager_Dashboard::instance();

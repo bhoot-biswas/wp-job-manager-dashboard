@@ -9,8 +9,10 @@
  * Domain Path:     /languages
  * Version:         0.1.0
  *
- * @package         Wp_Job_Manager_Dashboard
+ * @package         WP_Job_Manager_Dashboard
  */
+
+namespace BengalStudio;
 
 // Your code starts here.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -25,3 +27,11 @@ define( 'WP_JOB_MANAGER_DASHBOARD_PLUGIN_BASENAME', plugin_basename( __FILE__ ) 
 
 // Require the main Wp_Job_Manager_Dashboard class.
 require_once dirname( __FILE__ ) . '/includes/class-wp-job-manager-dashboard.php';
+
+// Main instance of Gutenberg Extensions.
+function wpjm_dashboard() {
+	return WP_Job_Manager_Dashboard::instance();
+}
+
+// Start the plugin.
+wpjm_dashboard();
