@@ -42,6 +42,7 @@ final class WP_Job_Manager_Dashboard {
 		add_action( 'after_setup_theme', [ $this, 'include_template_functions' ], 11 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
 		add_filter( 'template_include', [ $this, 'dashboard_page_template' ], 99 );
+		add_filter( 'show_admin_bar', [ $this, 'show_admin_bar' ] );
 	}
 
 	/**
@@ -89,6 +90,18 @@ final class WP_Job_Manager_Dashboard {
 		}
 
 		return $template;
+	}
+
+	/**
+	 * [show_admin_bar description]
+	 * @return [type] [description]
+	 */
+	public function show_admin_bar() {
+		if ( is_page( 'dashboard' ) ) {
+			return false;
+		}
+
+		return true;
 	}
 
 }
