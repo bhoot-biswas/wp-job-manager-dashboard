@@ -2,7 +2,7 @@
  * WordPress dependencies.
  */
 import {render} from "@wordpress/element";
-import {registerStore} from "@wordpress/data";
+import {createReduxStore, register} from "@wordpress/data";
 
 /**
  * Internal dependencies.
@@ -15,16 +15,18 @@ import controls from "./controls";
 import resolvers from "./resolvers";
 import Dashboard from "./dashboard";
 
-/**
- * Register store.
- */
-registerStore("wpjm-dashboard", {
+const store = createReduxStore("job-manager", {
 	reducer,
 	actions,
 	selectors,
 	controls,
 	resolvers
 });
+
+/**
+ * Register store.
+ */
+register(store);
 
 const appRoot = document.getElementById("wpjm-dashboard");
 if (appRoot) {

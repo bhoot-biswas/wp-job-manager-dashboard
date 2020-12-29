@@ -14,6 +14,6 @@
 		"grunt-wp-readme-to-markdown": "~1.0.0"
 	},
 	"dependencies": {
-		"@wordpress/data": "^4.25.0"
+		"@wordpress/data": "^4.26.0"
 	}
 }
