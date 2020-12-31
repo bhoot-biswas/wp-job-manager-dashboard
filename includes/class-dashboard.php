@@ -23,6 +23,9 @@ final class Dashboard extends Singleton {
 		// Includes.
 		include_once WP_JOB_MANAGER_DASHBOARD_PLUGIN_DIR . '/includes/navigation/class-menu.php';
 		include_once WP_JOB_MANAGER_DASHBOARD_PLUGIN_DIR . '/includes/navigation/class-navigation.php';
+
+		// Classes.
+		$this->navigation = Navigation::get_instance();
 	}
 
 	/**
@@ -35,10 +38,6 @@ final class Dashboard extends Singleton {
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
 		add_filter( 'template_include', [ $this, 'dashboard_page_template' ], 99 );
 		add_filter( 'show_admin_bar', [ $this, 'show_admin_bar' ] );
-
-		// Init classes.
-		$this->navigation = Navigation::get_instance();
-		$this->navigation->init();
 	}
 
 	/**

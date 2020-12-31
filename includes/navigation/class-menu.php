@@ -106,7 +106,14 @@ class Menu extends Singleton {
 	 * Add core menu items.
 	 */
 	public function add_core_items() {
-		$items = [];
+		$items = [
+			[
+				'title'      => __( 'Jobs', 'woocommerce-admin' ),
+				'capability' => 'manage_job_listings',
+				'id'         => 'job_listings',
+				'order'      => 10,
+			],
+		];
 		foreach ( $items as $item ) {
 			self::add_item( $item );
 		}

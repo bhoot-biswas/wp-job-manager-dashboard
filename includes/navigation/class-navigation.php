@@ -10,12 +10,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Navigation extends Singleton {
 	/**
-	 * Initialize.
-	 * @return [type] [description]
+	 * Constructor.
 	 */
-	public function init() {
+	protected function __construct() {
 		// Init classes.
 		$this->menu = Menu::get_instance();
-		$this->menu->init();
 	}
 }
