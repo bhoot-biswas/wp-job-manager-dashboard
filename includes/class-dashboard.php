@@ -17,11 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 final class Dashboard extends Singleton {
 	/**
-	 * Dashboard Constructor.
+	 * Constructor.
 	 */
 	public function __construct() {
 		// Includes.
-		include_once WP_JOB_MANAGER_DASHBOARD_PLUGIN_DIR . '/includes/class-navigation.php';
+		include_once WP_JOB_MANAGER_DASHBOARD_PLUGIN_DIR . '/includes/navigation/class-menu.php';
+		include_once WP_JOB_MANAGER_DASHBOARD_PLUGIN_DIR . '/includes/navigation/class-navigation.php';
 	}
 
 	/**
@@ -35,7 +36,8 @@ final class Dashboard extends Singleton {
 		add_filter( 'template_include', [ $this, 'dashboard_page_template' ], 99 );
 		add_filter( 'show_admin_bar', [ $this, 'show_admin_bar' ] );
 
-		Navigation::get_instance();
+		// Init classes.
+		$this->navigation = Navigation::get_instance();
 	}
 
 	/**
