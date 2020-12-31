@@ -5,7 +5,7 @@
  * @package WP_Job_Manager_Dashboard
  */
 
-namespace BengalStudio;
+namespace BengalStudio\JobManager;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -39,11 +39,16 @@ final class WP_Job_Manager_Dashboard {
 	 * WP_Job_Manager_Dashboard Constructor.
 	 */
 	public function __construct() {
+		// Includes.
+		include_once WP_JOB_MANAGER_DASHBOARD_PLUGIN_DIR . '/includes/class-navigation.php';
+
 		// Actions.
 		add_action( 'after_setup_theme', [ $this, 'include_template_functions' ], 11 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
 		add_filter( 'template_include', [ $this, 'dashboard_page_template' ], 99 );
 		add_filter( 'show_admin_bar', [ $this, 'show_admin_bar' ] );
+
+		new Navigation();
 	}
 
 	/**
