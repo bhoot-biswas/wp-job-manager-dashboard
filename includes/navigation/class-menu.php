@@ -31,6 +31,26 @@ class Menu extends Singleton {
 	}
 
 	/**
+	 * Convert a WordPress menu callback to a URL.
+	 *
+	 * @param string $callback Menu callback.
+	 * @return string
+	 */
+	public static function get_callback_url( $callback ) {
+		// Return the full URL.
+		if ( strpos( $callback, 'http' ) === 0 ) {
+			return $callback;
+		}
+
+		$pos  = strpos( $callback, '?' );
+		$file = $pos > 0 ? substr( $callback, 0, $pos ) : $callback;
+		if ( file_exists( ABSPATH . "/wp-admin/$file" ) ) {
+			return $callback;
+		}
+		return 'admin.php?page=' . $callback;
+	}
+
+	/**
 	 * Adds a menu item to the navigation.
 	 *
 	 * @param array $args Array containing the necessary arguments.
