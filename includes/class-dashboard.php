@@ -5,7 +5,7 @@
  * @package WP_Job_Manager_Dashboard
  */
 
-namespace BengalStudio\JobManager;
+namespace BengalStudio\Job\Analytics;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -15,34 +15,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Handles core plugin hooks and action setup.
  * @var [type]
  */
-final class WP_Job_Manager_Dashboard {
-
+final class Dashboard extends Singleton {
 	/**
-	 * The single instance of the class.
-	 * @var [type]
-	 */
-	protected static $_instance = null; // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
-
-
-	/**
-	 * Ensures only one instance of WP_Job_Manager_Dashboard is loaded or can be loaded.
-	 * @return [type] [description]
-	 */
-	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self();
-		}
-		return self::$_instance;
-	}
-
-	/**
-	 * WP_Job_Manager_Dashboard Constructor.
+	 * Dashboard Constructor.
 	 */
 	public function __construct() {
 		// Includes.
 		include_once WP_JOB_MANAGER_DASHBOARD_PLUGIN_DIR . '/includes/class-navigation.php';
 
-		// Actions.
+		// Hooks.
 		add_action( 'after_setup_theme', [ $this, 'include_template_functions' ], 11 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
 		add_filter( 'template_include', [ $this, 'dashboard_page_template' ], 99 );

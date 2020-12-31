@@ -1,6 +1,6 @@
 <?php
 
-namespace BengalStudio\JobAnalytics;
+namespace BengalStudio\Job\Analytics;
 
 /**
  * If you need to support several types of Singletons in your app, you can

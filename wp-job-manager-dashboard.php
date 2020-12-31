@@ -12,7 +12,7 @@
  * @package         WP_Job_Manager_Dashboard
  */
 
-namespace BengalStudio;
+namespace BengalStudio\Job\Analytics;
 
 // Your code starts here.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,12 +26,13 @@ define( 'WP_JOB_MANAGER_DASHBOARD_PLUGIN_URL', untrailingslashit( plugins_url( b
 define( 'WP_JOB_MANAGER_DASHBOARD_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 
 // Require the main Wp_Job_Manager_Dashboard class.
-require_once dirname( __FILE__ ) . '/includes/class-wp-job-manager-dashboard.php';
+require_once dirname( __FILE__ ) . '/includes/class-singleton.php';
+require_once dirname( __FILE__ ) . '/includes/class-dashboard.php';
 
-// Main instance of Gutenberg Extensions.
-function wpjm_dashboard() {
-	return WP_Job_Manager_Dashboard::instance();
+// Main instance of Job\Analytics\Dashboard.
+function init() {
+	return Dashboard::get_instance();
 }
 
 // Start the plugin.
-wpjm_dashboard();
+init();
