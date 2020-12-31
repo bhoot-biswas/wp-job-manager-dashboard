@@ -30,9 +30,9 @@ require_once dirname( __FILE__ ) . '/includes/class-singleton.php';
 require_once dirname( __FILE__ ) . '/includes/class-dashboard.php';
 
 // Main instance of Job\Analytics\Dashboard.
-function init() {
+function dashboard() {
 	return Dashboard::get_instance();
 }
 
 // Start the plugin.
-init();
+dashboard->init();
