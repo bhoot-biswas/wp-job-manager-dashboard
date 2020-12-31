@@ -38,6 +38,7 @@ final class Dashboard extends Singleton {
 
 		// Init classes.
 		$this->navigation = Navigation::get_instance();
+		$this->navigation->init();
 	}
 
 	/**
