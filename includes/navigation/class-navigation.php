@@ -33,7 +33,7 @@ class Navigation extends Singleton {
 	 */
 	public function enqueue_scripts() {
 		wp_localize_script(
-			'wp-job-manager-dashboard',
+			dashboard()::APP_HANDLE,
 			'frontend_ajax_object',
 			dashboard()->navigation->menu::get_items()
 		);

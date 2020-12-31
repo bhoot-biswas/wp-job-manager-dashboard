@@ -17,6 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 final class Dashboard extends Singleton {
 	/**
+	 * Handle.
+	 * @var string
+	 */
+	const APP_HANDLE = 'wp-job-manager-dashboard';
+
+	/**
 	 * Constructor.
 	 */
 	public function __construct() {
@@ -59,7 +65,7 @@ final class Dashboard extends Singleton {
 		$asset_file = include( WP_JOB_MANAGER_DASHBOARD_PLUGIN_DIR . '/build/index.asset.php' );
 
 		wp_register_script(
-			'wp-job-manager-dashboard',
+			self::APP_HANDLE,
 			WP_JOB_MANAGER_DASHBOARD_PLUGIN_URL . '/build/index.js',
 			$asset_file['dependencies'],
 			$asset_file['version'],
@@ -67,14 +73,14 @@ final class Dashboard extends Singleton {
 		);
 
 		wp_register_style(
-			'wp-job-manager-dashboard',
+			self::APP_HANDLE,
 			WP_JOB_MANAGER_DASHBOARD_PLUGIN_URL . '/build/index.css',
 			[],
 			$asset_file['version']
 		);
 
-		wp_enqueue_script( 'wp-job-manager-dashboard' );
-		wp_enqueue_style( 'wp-job-manager-dashboard' );
+		wp_enqueue_script( self::APP_HANDLE );
+		wp_enqueue_style( self::APP_HANDLE );
 	}
 
 	/**
