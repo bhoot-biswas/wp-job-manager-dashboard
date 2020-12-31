@@ -1,23 +1,36 @@
-import {withDispatch} from "@wordpress/data";
+import {
+    __experimentalNavigation as Navigation,
+    __experimentalNavigationGroup as NavigationGroup,
+    __experimentalNavigationItem as NavigationItem,
+    __experimentalNavigationMenu as NavigationMenu,
+} from '@wordpress/components';
 
-function Button({onClick}) {
-	return (
-		<button type="button" onClick={onClick}>
-			Start Sale!
-		</button>
-	);
-}
+const MyNavigation = () => (
+    <Navigation>
+        <NavigationMenu title="Home">
+            <NavigationGroup title="Group 1">
+                <NavigationItem item="item-1" title="Item 1" />
+                <NavigationItem item="item-2" title="Item 2" />
+            </NavigationGroup>
+            <NavigationGroup title="Group 2">
+                <NavigationItem
+                    item="item-3"
+                    navigateToMenu="category"
+                    title="Category"
+                />
+            </NavigationGroup>
+        </NavigationMenu>
 
-const Dashboard = withDispatch((dispatch, ownProps, {select}) => {
-	// Stock number changes frequently.
-	const {getStockNumber} = select("job-manager");
-	const {startSale} = dispatch("job-manager");
-	return {
-		onClick() {
-			const discountPercent = getStockNumber() > 50 ? 10 : 20;
-			startSale(discountPercent);
-		}
-	};
-})(Button);
+        <NavigationMenu
+            backButtonLabel="Home"
+            menu="category"
+            parentMenu="root"
+            title="Category"
+        >
+            <NavigationItem badge="1" item="child-1" title="Child 1" />
+            <NavigationItem item="child-2" title="Child 2" />
+        </NavigationMenu>
+    </Navigation>
+);
 
-export default Dashboard;
+export default MyNavigation;

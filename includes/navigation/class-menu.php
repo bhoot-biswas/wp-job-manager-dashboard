@@ -10,8 +10,26 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Menu extends Singleton {
 	/**
-	 * Constructor.
+	 * Store menu items.
+	 *
+	 * @var array
 	 */
-	public function __construct() {
+	protected static $menu_items = array();
+
+	/**
+	 * Initialize.
+	 * @return [type] [description]
+	 */
+	public function init() {
+
+	}
+
+	/**
+	 * Get registered menu items.
+	 *
+	 * @return array
+	 */
+	public static function get_items() {
+		return apply_filters( 'job_analytics_navigation_menu_items', self::$menu_items );
 	}
 }

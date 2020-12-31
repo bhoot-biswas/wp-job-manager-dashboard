@@ -35,4 +35,4 @@ function dashboard() {
 }
 
 // Start the plugin.
-dashboard->init();
+dashboard()->init();

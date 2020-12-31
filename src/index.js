@@ -15,18 +15,18 @@ import controls from "./controls";
 import resolvers from "./resolvers";
 import Dashboard from "./dashboard";
 
-const store = createReduxStore("job-manager", {
-	reducer,
-	actions,
-	selectors,
-	controls,
-	resolvers
-});
+// const store = createReduxStore("job-manager", {
+// 	reducer,
+// 	actions,
+// 	selectors,
+// 	controls,
+// 	resolvers
+// });
 
 /**
  * Register store.
  */
-register(store);
+// register(store);
 
 const appRoot = document.getElementById("wpjm-dashboard");
 if (appRoot) {

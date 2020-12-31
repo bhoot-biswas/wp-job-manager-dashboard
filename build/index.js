@@ -156,37 +156,44 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
-function Button(_ref) {
-  var onClick = _ref.onClick;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("button", {
-    type: "button",
-    onClick: onClick
-  }, "Start Sale!");
-}
+var MyNavigation = function MyNavigation() {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigation"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationMenu"], {
+    title: "Home"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationGroup"], {
+    title: "Group 1"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationItem"], {
+    item: "item-1",
+    title: "Item 1"
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationItem"], {
+    item: "item-2",
+    title: "Item 2"
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationGroup"], {
+    title: "Group 2"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationItem"], {
+    item: "item-3",
+    navigateToMenu: "category",
+    title: "Category"
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationMenu"], {
+    backButtonLabel: "Home",
+    menu: "category",
+    parentMenu: "root",
+    title: "Category"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationItem"], {
+    badge: "1",
+    item: "child-1",
+    title: "Child 1"
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationItem"], {
+    item: "child-2",
+    title: "Child 2"
+  })));
+};
 
-var Dashboard = Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__["withDispatch"])(function (dispatch, ownProps, _ref2) {
-  var select = _ref2.select;
-
-  // Stock number changes frequently.
-  var _select = select("job-manager"),
-      getStockNumber = _select.getStockNumber;
-
-  var _dispatch = dispatch("job-manager"),
-      startSale = _dispatch.startSale;
-
-  return {
-    onClick: function onClick() {
-      var discountPercent = getStockNumber() > 50 ? 10 : 20;
-      startSale(discountPercent);
-    }
-  };
-})(Button);
-/* harmony default export */ __webpack_exports__["default"] = (Dashboard);
+/* harmony default export */ __webpack_exports__["default"] = (MyNavigation);
 
 /***/ }),
 
@@ -228,19 +235,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // const store = createReduxStore("job-manager", {
+// 	reducer,
+// 	actions,
+// 	selectors,
+// 	controls,
+// 	resolvers
+// });
 
-var store = Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__["createReduxStore"])("job-manager", {
-  reducer: _rootReducer__WEBPACK_IMPORTED_MODULE_3__["default"],
-  actions: _actions__WEBPACK_IMPORTED_MODULE_4__["default"],
-  selectors: _selectors__WEBPACK_IMPORTED_MODULE_5__["default"],
-  controls: _controls__WEBPACK_IMPORTED_MODULE_6__["default"],
-  resolvers: _resolvers__WEBPACK_IMPORTED_MODULE_7__["default"]
-});
 /**
  * Register store.
  */
+// register(store);
 
-Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__["register"])(store);
 var appRoot = document.getElementById("wpjm-dashboard");
 
 if (appRoot) {
@@ -346,6 +353,17 @@ var rootReducer = Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__["combineRe
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!*********************************************!*\
+  !*** external {"this":["wp","components"]} ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = this["wp"]["components"]; }());
 
 /***/ }),
 
