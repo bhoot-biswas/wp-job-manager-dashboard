@@ -24,11 +24,10 @@ class Menu extends Singleton {
 	protected static $callbacks = [];
 
 	/**
-	 * Initialize.
-	 * @return [type] [description]
+	 * Constructor.
 	 */
-	public function init() {
-
+	protected function __construct() {
+		add_action( 'init', [ $this, 'add_core_items' ] );
 	}
 
 	/**
@@ -66,7 +65,7 @@ class Menu extends Singleton {
 		$defaults           = array(
 			'id'         => '',
 			'title'      => '',
-			'capability' => 'manage_job',
+			'capability' => 'manage_job_listings',
 			'url'        => '',
 			'order'      => 100,
 			'migrate'    => true,
@@ -102,6 +101,17 @@ class Menu extends Singleton {
 
 		return $item['menuId'];
 	}
+
+	/**
+	 * Add core menu items.
+	 */
+	public function add_core_items() {
+		$items = [];
+		foreach ( $items as $item ) {
+			self::add_item( $item );
+		}
+	}
+
 
 	/**
 	 * Get registered menu items.
