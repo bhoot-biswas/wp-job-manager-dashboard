@@ -38,6 +38,9 @@ final class Dashboard extends Singleton {
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
 		add_filter( 'template_include', [ $this, 'dashboard_page_template' ], 99 );
 		add_filter( 'show_admin_bar', [ $this, 'show_admin_bar' ] );
+
+		// Init classes.
+		$this->navigation->init();
 	}
 
 	/**

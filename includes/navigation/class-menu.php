@@ -24,9 +24,9 @@ class Menu extends Singleton {
 	protected static $callbacks = [];
 
 	/**
-	 * Constructor.
+	 * Initialize.
 	 */
-	protected function __construct() {
+	public function init() {
 		add_action( 'init', [ $this, 'add_core_items' ] );
 	}
 
