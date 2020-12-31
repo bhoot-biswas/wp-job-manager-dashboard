@@ -90,6 +90,20 @@ class Menu extends Singleton {
 	}
 
 	/**
+	 * Get an item's menu ID from its parent.
+	 *
+	 * @param array $item Item args.
+	 * @return string
+	 */
+	public static function get_item_menu_id( $item ) {
+		if ( isset( $item['parent'] ) && isset( self::$menu_items[ $item['parent'] ] ) ) {
+			return self::$menu_items[ $item['parent'] ]['menuId'];
+		}
+
+		return $item['menuId'];
+	}
+
+	/**
 	 * Get registered menu items.
 	 *
 	 * @return array
