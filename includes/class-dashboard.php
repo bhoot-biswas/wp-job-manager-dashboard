@@ -72,6 +72,14 @@ final class Dashboard extends Singleton {
 			true
 		);
 
+		wp_localize_script(
+			self::APP_HANDLE,
+			'wpjm',
+			[
+				'menuItems' => dashboard()->navigation->menu::get_items(),
+			]
+		);
+
 		wp_register_style(
 			self::APP_HANDLE,
 			WP_JOB_MANAGER_DASHBOARD_PLUGIN_URL . '/build/index.css',

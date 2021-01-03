@@ -23,19 +23,5 @@ class Navigation extends Singleton {
 	public function init() {
 		// Init classes.
 		$this->menu->init();
-
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-	}
-
-	/**
-	 * Enqueue scripts.
-	 * @return [type] [description]
-	 */
-	public function enqueue_scripts() {
-		wp_localize_script(
-			dashboard()::APP_HANDLE,
-			'frontend_ajax_object',
-			dashboard()->navigation->menu::get_items()
-		);
 	}
 }
