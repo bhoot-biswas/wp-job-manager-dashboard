@@ -162,35 +162,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var MyNavigation = function MyNavigation() {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigation"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationMenu"], {
-    title: "Home"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationGroup"], {
-    title: "Group 1"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationItem"], {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigation"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationMenu"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationGroup"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationItem"], {
     item: "item-1",
     title: "Item 1"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationItem"], {
     item: "item-2",
     title: "Item 2"
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationGroup"], {
-    title: "Group 2"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationItem"], {
-    item: "item-3",
-    navigateToMenu: "category",
-    title: "Category"
-  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationMenu"], {
-    backButtonLabel: "Home",
-    menu: "category",
-    parentMenu: "root",
-    title: "Category"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationItem"], {
-    badge: "1",
-    item: "child-1",
-    title: "Child 1"
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalNavigationItem"], {
-    item: "child-2",
-    title: "Child 2"
-  })));
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MyNavigation);
@@ -235,19 +213,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // const store = createReduxStore("job-manager", {
-// 	reducer,
-// 	actions,
-// 	selectors,
-// 	controls,
-// 	resolvers
-// });
 
+var store = Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__["createReduxStore"])("job-manager", {
+  reducer: _rootReducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  actions: _actions__WEBPACK_IMPORTED_MODULE_4__["default"],
+  selectors: _selectors__WEBPACK_IMPORTED_MODULE_5__["default"],
+  controls: _controls__WEBPACK_IMPORTED_MODULE_6__["default"],
+  resolvers: _resolvers__WEBPACK_IMPORTED_MODULE_7__["default"]
+});
 /**
  * Register store.
  */
-// register(store);
 
+Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__["register"])(store);
 var appRoot = document.getElementById("wpjm-dashboard");
 
 if (appRoot) {
